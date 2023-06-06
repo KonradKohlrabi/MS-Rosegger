@@ -1,0 +1,14 @@
+{
+    "name": "MS Rosegger",
+    "short_name": "MS Rosegger",
+    "description": "Die Website über die Mittelschule Rosegger die dem Schulsprengel Untermais angehört.",
+    "icons": [
+        {
+            "src": "img/icon.png",
+            "sizes": "474x474",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone"
+}
