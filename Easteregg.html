@@ -1,11 +1,56 @@
 <style>
-    
+    img {
+        width: 100px;
+    }
 </style>
 
 <div class="wrapper">
-
+    <img alt="" id="img">
 </div>
 
 <script>
+    var now = new Date();
+    var summerStart = new Date(now.getFullYear(), 5, 1);
+    var summerEnd = new Date(now.getFullYear(), 8, 22);
+    if (now >= summerStart && now <= summerEnd) {
+        img.setAttribute("src", "img/Sommereasteregg.png");
+    }
 
+    var now = new Date();
+    if (now.getMonth() == 11 && now.getDate() >= 1 && now.getDate() <= 26) {
+        img.setAttribute("src", "img/Sommereasteregg.png");
+    }
+
+    var now = new Date();
+    if (now.getMonth() == 9 && now.getDate() == 31) {
+        img.setAttribute("src", "img/Sommereasteregg.png");
+    }
+
+    function calculateEaster(year) {
+        var C = Math.floor(year / 100);
+        var N = year - 19 * Math.floor(year / 19);
+        var K = Math.floor((C - 17) / 25);
+        var I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
+        I = I - 30 * Math.floor((I / 30));
+        I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
+        var J = year + Math.floor(year / 4) + I + 2 - C + Math.floor(C / 4);
+        J = J - 7 * Math.floor(J / 7);
+        var L = I - J;
+        var month = 3 + Math.floor((L + 40) / 44);
+        var day = L + 28 - 31 * Math.floor(month / 4);
+        return new Date(year, month - 1, day);
+    }
+
+    var now = new Date();
+    var easter = calculateEaster(now.getFullYear());
+    var easterStart = new Date(easter.getFullYear(), easter.getMonth(), easter.getDate() - 2);
+    var easterEnd = new Date(easter.getFullYear(), easter.getMonth(), easter.getDate() + 1);
+    if (now >= easterStart && now <= easterEnd) {
+        img.setAttribute("src", "img/Sommereasteregg.png");
+    }
+
+    var now = new Date();
+    if (now.getMonth() == 8 && now.getDate() == 6) {
+        img.setAttribute("src", "img/Sommereasteregg.png");
+    }
 </script>
